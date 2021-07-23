@@ -1,0 +1,37 @@
+alias python=python3
+
+alias timer="python ~/Apps/My_Apps/timer.py"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+alias web="
+tmux new -s dev -n code -d
+tmux split-window -h -t dev:0.0
+tmux split-window -v -t dev:0.1
+tmux resize-pane -t 0.0 -R 32
+tmux send-keys -t dev:0.0 'Code/Flask_study' Enter
+tmux send-keys -t dev:0.0 'vim .' Enter
+tmux send-keys -t dev:0.1 'python Code/Flask_study/app.py' Enter
+tmux new-window calcurse
+tmux select-window -t 0
+tmux attach -t dev
+"
+
+alias run_kotlin="
+tmux new -s dev -n code -d
+tmux split-window -h -t dev:0.0
+tmux split-window -v -t dev:0.1
+tmux resize-pane -t 0.0 -R 32
+tmux send-keys -t dev:0.0 'Code/Kotlin' Enter
+tmux send-keys -t dev:0.0 'vim .' Enter
+tmux send-keys -t dev:0.1 'Code/Kotlin' Enter
+tmux attach -t dev
+"
+
+alias run_dev="
+tmux new -s dev -n code -d
+tmux split-window -v -t dev:0.0
+tmux resize-pane -t 0.0 -D 20
+tmux send-keys -t dev:0.0 'vim .' Enter
+tmux select-pane -t 0
+tmux attach -t dev
+"
