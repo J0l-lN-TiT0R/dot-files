@@ -20,6 +20,10 @@ set display+=lastline
 :vnoremap <C-c> "+y
 :vnoremap <C-d> "+d
 
+" Easy python comments
+vnoremap <silent> <C-_> :s/^/# /<cr>:noh<cr>
+vnoremap <silent> <C-k> :s/^# //<cr>:noh<cr>
+
 let mapleader = ","
 
 " NerdTree mappings
