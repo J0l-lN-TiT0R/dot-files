@@ -1,0 +1,13 @@
+{
+  "html": {
+    "snippets": {
+      "ord-sen": "vim-order-sentence-verify>vim-order-sentence-verify-item{\n\n}*3",
+      "ord-word": "vim-order-word>vim-order-word-item*3",
+      "text": "vim-text[type='strong/em/wrong']",
+      "tn" : "vim-teacher-notes[type='instruction']{\n\n}",
+      "test": "vim-test>vim-test-question[multiple='true']>vim-test-question-text{\n\n}>+vim-test-answers>vim-test-item[correct='true']{\n\n}*2>+vim-test-item{\n\n}",
+      "choice": "vim-choice>(vim-choice-option>vim-choice-option-content{\n\n}+vim-choice-option-title{\n\n})*2",
+      "input": "p>vim-input>vim-input-answers>vim-input-item"
+    }
+  }
+}

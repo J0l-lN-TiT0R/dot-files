@@ -7,6 +7,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
+Plug 'mattn/webapi-vim'
 call plug#end()
 
 set path+=**
@@ -24,7 +25,7 @@ set display+=lastline
 vnoremap <silent> <C-_> :s/^/# /<cr>:noh<cr>
 vnoremap <silent> <C-k> :s/^# //<cr>:noh<cr>
 
-let mapleader = ","
+let mapleader = " "
 
 " NerdTree mappings
 noremap <Bslash> :NERDTree <CR>
@@ -49,9 +50,12 @@ highlight lCursor guifg=NONE guibg=Cyan
 setlocal spell spelllang=ru_yo,en_us
 
 " Remap emmet leader key
-let g:user_emmet_leader_key=','
+let g:user_emmet_leader_key='`'
 " Enable emmet just for html/css
 let g:user_emmet_install_global = 0
+" Enable custom snippets
+let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
+
 autocmd FileType html,css EmmetInstall
 
 set autoindent
