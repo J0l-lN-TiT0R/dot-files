@@ -1,13 +1,18 @@
 {
   "html": {
     "snippets": {
+      "vim-img": "p>vim-image[resource-id='']",
       "ord-sen": "vim-order-sentence-verify>vim-order-sentence-verify-item{\n\n}*3",
       "ord-word": "vim-order-word>vim-order-word-item*3",
       "text": "vim-text[type='strong/em/wrong']",
       "tn" : "vim-teacher-notes[type='instruction']{\n\n}",
       "test": "vim-test>vim-test-question[multiple='true']>vim-test-question-text{\n\n}>+vim-test-answers>vim-test-item[correct='true']{\n\n}*2>+vim-test-item{\n\n}",
       "choice": "vim-choice>(vim-choice-option>vim-choice-option-content{\n\n}+vim-choice-option-title{\n\n})*2",
-      "input": "p>vim-input>vim-input-answers>vim-input-item"
+      "input": "p>vim-input>vim-input-answers>vim-input-item",
+      "groups": "vim-groups>(vim-groups-row>vim-groups-item*2)*4",
+      "strike-out": "p>vim-strike-out[delimiter='\n']>(vim-strike-out-item[striked='true']{\n\n}+vim-strike-out-item{\n\n})*4",
+      "spoiler": "vim-spoiler>vim-spoiler-title+vim-spoiler-content",
+      "dnd-groups": "vim-dnd-group>vim-dnd-group-drags>vim-dnd-group-drag[id=$]*4^vim-dnd-group-groups>(vim-dnd-group-item[drag-ids=1,2]>vim-dnd-group-item-caption)*2"
     }
   }
 }
