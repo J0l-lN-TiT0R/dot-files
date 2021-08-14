@@ -5,6 +5,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/seoul256.vim'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'preservim/vim-colors-pencil'
+Plug 'romgrk/github-light.vim'
 Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
 Plug 'mattn/webapi-vim'
@@ -21,9 +23,19 @@ set display+=lastline
 :vnoremap <C-c> "+y
 :vnoremap <C-d> "+d
 
-" Easy python comments
-vnoremap <silent> <C-_> :s/^/# /<cr>:noh<cr>
-vnoremap <silent> <C-k> :s/^# //<cr>:noh<cr>
+" Commenting blocks of code
+augroup commenting_blocks_of_code
+  autocmd!
+  autocmd FileType c,cpp,java,rust  let b:comment_leader = '// '
+  autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+  autocmd FileType conf,fstab       let b:comment_leader = '# '
+  autocmd FileType tex              let b:comment_leader = '% '
+  autocmd FileType mail             let b:comment_leader = '> '
+  autocmd FileType vim              let b:comment_leader = '" '
+augroup END
+noremap <silent> <C-_> :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> <C-k> :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
 
 let mapleader = " "
 
@@ -82,8 +94,14 @@ set noswapfile
 set encoding=utf-8 " Кодировка файлов по умолчанию
 set fileencodings=utf8,cp1251
 
+let ayucolor="light" " available: light, dark, mirage
+
 set termguicolors
-let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_style = 'storm' " available: night, storm
 let g:tokyonight_enable_italic = 1
 
-colo tokyonight
+" Pencil colorscheme
+set background=dark
+let g:pencil_terminal_italics = 1
+
+colo pencil
