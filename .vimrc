@@ -94,10 +94,8 @@ set noswapfile
 set encoding=utf-8 " Кодировка файлов по умолчанию
 set fileencodings=utf8,cp1251
 
-let ayucolor="light" " available: light, dark, mirage
-
 set termguicolors
-let g:tokyonight_style = 'storm' " available: night, storm
+let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 
 " Pencil colorscheme
